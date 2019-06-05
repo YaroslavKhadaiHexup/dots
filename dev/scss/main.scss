@@ -1,0 +1,53 @@
+.particle{
+  position: absolute;
+  transition: top 2s ease-in-out,
+          left 2s ease-in-out,
+          height 3s linear,
+          width 3s linear;
+  border-radius: 50%;
+}
+#particles{
+  height: 100vh;
+  width: 100vw;
+  position: relative;
+}
+button{
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  z-index: 50;
+}
+:root {
+  --centerX: 0px;
+  --centerY: 0px;
+}
+.goToDaddy {
+  left: var(--centerX) !important;
+  top: var(--centerY) !important;
+  height: 0 !important;
+  width: 0 !important;
+}
+@for $i from 1 through 500 {
+  @keyframes particle-animation-#{$i} {
+    20% {
+      left: (random(90) * 1vw);
+      top: (random(90) * 1vh);
+    }
+    40% {
+      left: (random(90) * 1vw);
+      top: (random(90) * 1vh);
+    }
+    60% {
+      left: (random(90) * 1vw);
+      top: (random(90) * 1vh);
+    }
+    80% {
+      left: (random(90) * 1vw);
+      top: (random(90) * 1vh);
+    }
+  }
+
+  .particle:nth-child(#{$i}){
+    animation: particle-animation-#{$i} random(51) + 30 + s infinite;
+  }
+}
